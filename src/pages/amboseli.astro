@@ -1,0 +1,435 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { Image } from 'astro:assets';
+import placeholder from '../assets/placeholder.svg';
+
+const cottageFeatures = [
+  { label: 'Living Area', detail: 'A cosy atmosphere ideal for gatherings and family time.' },
+  { label: 'Bedrooms', detail: 'King bed in the primary bedroom, twin beds in the secondary, plus a shared bathroom and private porch overlooking grasslands.' },
+  { label: 'Kitchenette', detail: 'Fully equipped, ideal for groups and families.' },
+  { label: 'Bathroom', detail: 'Thoughtfully supplied with the finest amenities.' },
+  { label: 'Porch', detail: 'Private deck with unobstructed views across the grasslands towards Kilimanjaro.' },
+  { label: 'Décor', detail: 'Curated local antiques and original artwork by Kenyan artists.' },
+];
+
+const tentFeatures = [
+  { label: 'Bed', detail: 'Queen-size beds with premium linen and full mosquito netting.' },
+  { label: 'Seating', detail: 'Separate lounge area with camp chairs and reading light.' },
+  { label: 'Bathroom', detail: 'Private en-suite with bathtub and quality amenities.' },
+  { label: 'Views', detail: 'Private verandah framing open bush and Kilimanjaro on clear days.' },
+  { label: 'Connectivity', detail: 'Wi-Fi available in common areas; deliberate disconnect in tents.' },
+];
+const { PUBLIC_STORAGE_URL } = import.meta.env;
+---
+
+<BaseLayout title="Oilepo Amboseli | Accommodation & Experiences">
+  <Header />
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="page-hero-bg">
+      <Image src={PUBLIC_STORAGE_URL+"/t/Oilepo/Amboseli/20260328_095655.jpg"} alt="Amboseli landscape with Kilimanjaro" width={1920} height={700} class="page-hero-img" loading="eager" fetchpriority="high" />
+      <div class="page-hero-overlay"></div>
+    </div>
+    <div class="page-hero-content">
+      <p class="page-eyebrow">Amboseli National Park</p>
+      <h1 class="page-title">Oilepo Amboseli</h1>
+      <p class="page-sub">800m from the park gates · Mount Kilimanjaro views</p>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <section class="intro-section">
+    <div class="container">
+      <div class="intro-inner">
+        <h2 class="intro-heading">Accommodation in Amboseli National Park</h2>
+        <p class="intro-lead">
+          Set 800 metres from the gates of Amboseli National Park, Oilepo Amboseli blends
+          luxury with the raw grandeur of the savanna. Choose between our spacious Family Cottages,
+          designed for multi-generational travel, or our intimate Luxury Tents, where canvas walls
+          bring you within earshot of the wild.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Full-width image strip -->
+  <div class="image-strip">
+    <Image src={PUBLIC_STORAGE_URL+"/t/Oilepo/Amboseli/DJI_0314.jpg"} alt="Aerial view of Oilepo Amboseli camp" width={1440} height={400} class="strip-img" />
+  </div>
+
+  <!-- Family Cottages -->
+  <section class="accommodation-section">
+    <div class="container">
+      <div class="accom-grid">
+        <div class="accom-images">
+          <Image src={PUBLIC_STORAGE_URL+"/t/Oilepo/Website Photos/Family Suite.jpg"} alt="Family cottage living area" width={560} height={380} class="accom-img accom-img--main" />
+          <Image src={PUBLIC_STORAGE_URL+"/t/Oilepo/Website Photos/Family Suite 2.jpg"} alt="Family cottage bedroom" width={270} height={180} class="accom-img accom-img--sub" />
+          <Image src={PUBLIC_STORAGE_URL+"/t/Oilepo/Website Photos/suite.jpg"} alt="Family cottage porch view" width={270} height={180} class="accom-img accom-img--sub" />
+        </div>
+        <div class="accom-text">
+          <p class="accom-label">Accommodation · 01</p>
+          <h2 class="accom-heading">Family Cottages</h2>
+          <p class="accom-intro">
+            Our two-bedroom family cottages are built for togetherness. Decorated with local
+            antiques and artwork, each cottage offers a private porch overlooking the grasslands —
+            perfect for sunrise coffee as elephants move along the tree-line.
+          </p>
+          <ul class="feature-list">
+            {cottageFeatures.map((f) => (
+              <li class="feature-item">
+                <span class="feature-label">{f.label}</span>
+                <span class="feature-detail">{f.detail}</span>
+              </li>
+            ))}
+          </ul>
+          <a href="/contact" class="btn-book">Enquire &amp; Book</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="section-divider"></div>
+
+  <!-- Luxury Tents -->
+  <section class="accommodation-section alt-bg">
+    <div class="container">
+      <div class="accom-grid reverse">
+        <div class="accom-text">
+          <p class="accom-label">Accommodation · 02</p>
+          <h2 class="accom-heading">Luxury Tents</h2>
+          <p class="accom-intro">
+            Fall asleep to the distant calls of the African night. Our luxury tented suites pair
+            the romance of classic safari camping with the indulgence of boutique hospitality —
+            queen-size beds, private bathtubs, and a verandah that frames an infinite sky.
+          </p>
+          <ul class="feature-list">
+            {tentFeatures.map((f) => (
+              <li class="feature-item">
+                <span class="feature-label">{f.label}</span>
+                <span class="feature-detail">{f.detail}</span>
+              </li>
+            ))}
+          </ul>
+          <a href="/contact" class="btn-book">Enquire &amp; Book</a>
+        </div>
+        <div class="accom-images">
+          <Image src={PUBLIC_STORAGE_URL+"/t/Oilepo/Amboseli/Luxury_tent1.jpg"} alt="Luxury tent interior" width={560} height={380} class="accom-img accom-img--main" />
+          <Image src={PUBLIC_STORAGE_URL+"/t/Oilepo/Amboseli/Bed.jpg"} alt="Tent verandah view" width={270} height={180} class="accom-img accom-img--sub" />
+          <Image src={PUBLIC_STORAGE_URL+"/t/Oilepo/Amboseli/tent.jpg"} alt="Tent bathroom with bathtub" width={270} height={180} class="accom-img accom-img--sub" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experiences strip -->
+  <section class="experiences-section">
+    <div class="container">
+      <p class="section-label">At Oilepo Amboseli</p>
+      <h2 class="experiences-heading">Beyond the Room</h2>
+      <div class="experience-cards">
+        {[
+          { title: 'Game Drives', desc: 'Morning and evening drives into Amboseli National Park led by expert guides with deep knowledge of the ecosystem.' },
+          { title: 'Walking Safaris', desc: 'Track big game on foot alongside Maasai guides — an unfiltered encounter with the African bush.' },
+          { title: 'Cultural Visits', desc: "Visit authentic Maasai manyattas and witness the traditions of one of East Africa's most iconic communities." },
+          { title: 'Sundowners', desc: 'Watch Kilimanjaro turn pink at dusk from a private viewpoint, sundowner in hand.' },
+        ].map((exp) => (
+          <div class="exp-card">
+            <h3 class="exp-title">{exp.title}</h3>
+            <p class="exp-desc">{exp.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA banner -->
+  <section class="cta-banner">
+    <div class="cta-bg">
+      <Image src={PUBLIC_STORAGE_URL+"/t/Oilepo/Amboseli/AMBOSELI EXPERIENCE.jpg"} alt="Elephant at Amboseli" width={1440} height={400} class="cta-bg-img" />
+      <div class="cta-overlay"></div>
+    </div>
+    <div class="cta-content">
+      <h2 class="cta-heading">Your Amboseli Adventure Awaits</h2>
+      <p class="cta-sub">Contact our team to start planning your stay.</p>
+      <a href="/contact" class="cta-btn">Book Now</a>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  /* Page hero */
+  .page-hero {
+    position: relative;
+    height: 70vh;
+    min-height: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .page-hero-bg { position: absolute; inset: 0; }
+  .page-hero-img { width: 100%; height: 100%; object-fit: cover; }
+  .page-hero-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.42); }
+  .page-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+    padding-top: 72px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .page-eyebrow {
+    font-family: var(--font-decorative);
+    font-size: 1rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    opacity: 0.85;
+    margin: 0;
+  }
+  .page-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    margin: 0;
+  }
+  .page-sub {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.8;
+    margin: 0;
+  }
+
+  /* Containers */
+  .container { max-width: 1200px; margin: 0 auto; }
+
+  /* Intro */
+  .intro-section { padding: 5rem 1.5rem; }
+  .intro-inner { max-width: 760px; margin: 0 auto; text-align: center; }
+  .intro-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(1.5rem, 3.5vw, 2.4rem);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: var(--color-text-dark);
+    margin: 0 0 1.25rem;
+  }
+  .intro-lead {
+    font-size: 1rem;
+    line-height: 1.9;
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  /* Image strip */
+  .image-strip { line-height: 0; }
+  .strip-img { width: 100%; height: 320px; object-fit: cover; display: block; }
+
+  /* Accommodation */
+  .accommodation-section { padding: 6rem 1.5rem; }
+  .alt-bg { background: var(--color-surface); }
+  .section-divider { height: 1px; background: var(--color-border); margin: 0 1.5rem; }
+
+  .accom-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+  .accom-grid.reverse { direction: rtl; }
+  .accom-grid.reverse > * { direction: ltr; }
+
+  .accom-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 0.75rem;
+  }
+  .accom-img { width: 100%; object-fit: cover; display: block; }
+  .accom-img--main { grid-column: 1 / -1; height: 300px; }
+  .accom-img--sub { height: 160px; }
+
+  .accom-label {
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin: 0 0 0.5rem;
+  }
+  .accom-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: var(--color-text-dark);
+    margin: 0 0 1rem;
+  }
+  .accom-intro {
+    font-size: 0.95rem;
+    line-height: 1.85;
+    color: var(--color-text);
+    margin: 0 0 1.75rem;
+  }
+
+  .feature-list {
+    list-style: none;
+    margin: 0 0 2rem;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .feature-item {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 1rem;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+  .feature-label {
+    font-weight: 700;
+    color: var(--color-text-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-size: 0.75rem;
+  }
+  .feature-detail { color: var(--color-text); }
+
+  .btn-book {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+    background: var(--color-accent);
+    padding: 0.8rem 2rem;
+    border-radius: 2px;
+    transition: background 0.2s;
+  }
+  .btn-book:hover { background: var(--color-accent-hover); }
+
+  /* Experiences */
+  .experiences-section { padding: 5.5rem 1.5rem; background: var(--color-surface-alt); }
+  .section-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    text-align: center;
+    margin: 0 0 0.5rem;
+  }
+  .experiences-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-weight: 400;
+    text-align: center;
+    color: var(--color-text-dark);
+    margin: 0 0 3rem;
+  }
+  .experience-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+  .exp-card {
+    padding: 1.5rem;
+    background: var(--color-background);
+    border: 1px solid var(--color-border);
+  }
+  .exp-title {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--color-text-dark);
+    margin: 0 0 0.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .exp-desc {
+    font-size: 0.875rem;
+    line-height: 1.75;
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  /* CTA banner */
+  .cta-banner {
+    position: relative;
+    height: 380px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .cta-bg { position: absolute; inset: 0; }
+  .cta-bg-img { width: 100%; height: 100%; object-fit: cover; }
+  .cta-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.5); }
+  .cta-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .cta-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(1.5rem, 3.5vw, 2.4rem);
+    font-weight: 400;
+    margin: 0;
+  }
+  .cta-sub {
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    margin: 0;
+    opacity: 0.85;
+  }
+  .cta-btn {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.7);
+    padding: 0.8rem 2.25rem;
+    margin-top: 0.5rem;
+    transition: background 0.2s;
+  }
+  .cta-btn:hover { background: rgba(255,255,255,0.15); }
+
+  /* Responsive */
+  @media (max-width: 921px) {
+    .accom-grid, .accom-grid.reverse {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      direction: ltr;
+    }
+    .experience-cards { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 540px) {
+    .experience-cards { grid-template-columns: 1fr; }
+  }
+</style>

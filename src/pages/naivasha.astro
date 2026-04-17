@@ -1,0 +1,472 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { Image } from 'astro:assets';
+import placeholder from '../assets/placeholder.svg';
+
+const pillars = [
+  {
+    number: '01',
+    title: 'Accommodation',
+    desc: 'Two spacious private cottages, each with a sitting room and fireplace, fully equipped kitchen, two en-suite bedrooms, and a private balcony opening onto our garden and gazebo.',
+  },
+  {
+    number: '02',
+    title: 'Dining',
+    desc: 'Three unique dining venues — Gemini, Sagitta, and Cepheus — offer an evolving menu of locally inspired cuisine, Rift Valley wines, and sundowner cocktails with panoramic views.',
+  },
+  {
+    number: '03',
+    title: 'Experience',
+    desc: 'Explore, adventure, engage. Boat rides through papyrus channels, guided nature walks on the lakeshore, visits to Hell\'s Gate, horse-riding, and access to an 18-hole championship golf course.',
+  },
+];
+
+const highlights = [
+  { title: 'Great Rift Valley Views', desc: 'Wake to one of Earth\'s most dramatic geological features framed from your balcony — the Rift Valley escarpment stretching to the horizon.' },
+  { title: '18-Hole Golf Course', desc: 'An acclaimed championship course set against the backdrop of Lake Naivasha and the escarpment — for those who like to swing between game drives.' },
+  { title: 'Boat Safaris', desc: 'Glide across the lake\'s glassy surface at dawn, navigating papyrus channels thick with hippos, kingfishers, and fish eagles.' },
+  { title: 'Hell\'s Gate', desc: 'Cycle or walk through Hell\'s Gate National Park — geysers, gorges, and abundant wildlife, all on foot. The rare African park you can explore without a vehicle.' },
+  { title: 'Walking Safaris', desc: 'Guided lakeshore walks reveal giraffe, zebra, waterbuck, and a staggering diversity of birdlife in the acacia woodland.' },
+  { title: 'Spa & Wellness', desc: 'Unwind with treatments inspired by Kenyan botanicals, in a setting designed for deep restoration after days spent in the bush.' },
+];
+const restaurants = [
+  "https://static.guestcentric.net/bin/153019f4f24ce8ca/great-rift-valley-lodge-and-golf-resort-imageLinkgemini-restaurant.jpg",
+  "https://static.guestcentric.net/bin/153019f4f24ce8ca/great-rift-valley-lodge-and-golf-resort-imageLinksagitta-restaurant.jpg",
+  "https://static.guestcentric.net/bin/153019f4f24ce8ca/great-rift-valley-lodge-and-golf-resort-imageLinkcepheus-restaurant-2.jpg"
+]
+
+const { PUBLIC_STORAGE_URL } = import.meta.env;
+---
+
+<BaseLayout title="Oilepo Naivasha | Lake Naivasha Luxury Retreat">
+  <Header />
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="page-hero-bg">
+      <Image src={PUBLIC_STORAGE_URL+"/t/Oilepo/Naivasha/NAIVASHA BANNER.jpg"} alt="Lake Naivasha at dawn" width={1920} height={700} class="page-hero-img" loading="eager" fetchpriority="high" />
+      <div class="page-hero-overlay"></div>
+    </div>
+    <div class="page-hero-content">
+      <p class="page-eyebrow">Great Rift Valley · Lake Naivasha</p>
+      <h1 class="page-title">Oilepo Naivasha</h1>
+      <p class="page-sub">Private cottages · Rift Valley views · 18-hole golf</p>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <section class="intro-section">
+    <div class="container">
+      <div class="intro-inner">
+        <h2 class="intro-heading">Best Naivasha Resort for Luxury Stay</h2>
+        <p class="intro-lead">
+          Perched on the shores of Lake Naivasha with the escarpment of the Great Rift Valley
+          as backdrop, Oilepo Naivasha is an intimate retreat where extraordinary nature,
+          refined hospitality, and the spirit of adventure coexist seamlessly. Two private
+          cottages. Three restaurants. Infinite possibility.
+        </p>
+        <p class="intro-secondary">
+          Whether you arrive for the golf, the birds, the boat rides, or simply the profound
+          stillness of a lake at dawn — Naivasha will hold you longer than you planned.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Three pillars -->
+  <section class="pillars-section">
+    <div class="container">
+      <div class="pillars-grid">
+        {pillars.map((p) => (
+          <div class="pillar">
+            <span class="pillar-number">{p.number}</span>
+            <h2 class="pillar-title">{p.title}</h2>
+            <p class="pillar-desc">{p.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Accommodation detail -->
+  <section class="detail-section">
+    <div class="container">
+      <div class="detail-grid">
+        <div class="detail-images">
+          <Image src={PUBLIC_STORAGE_URL+"/t/Oilepo/About_Us/about us oilepo naivasha.jpg"} alt="Naivasha cottage living room with fireplace" width={560} height={400} class="detail-img detail-img--main" />
+          <Image src={PUBLIC_STORAGE_URL+"/t/Oilepo/Naivasha/NAIVASHA ACCOMODATION.jpg"} alt="Cottage bedroom" width={270} height={190} class="detail-img detail-img--sub" />
+          <Image src={PUBLIC_STORAGE_URL+"/t/Oilepo/Naivasha/NAIVASHA DINING.jpg"} alt="Cottage garden and gazebo" width={270} height={190} class="detail-img detail-img--sub" />
+        </div>
+        <div class="detail-text">
+          <p class="detail-label">Private Cottages</p>
+          <h2 class="detail-heading">Your Home on the Lakeshore</h2>
+          <p>
+            Each of our two private cottages is a self-contained sanctuary designed for long
+            stays. A sitting room with fireplace anchors the open-plan living space; a fully
+            equipped kitchen means you are never beholden to fixed mealtimes. Two en-suite
+            bedrooms open onto a private balcony that leads directly to the Oilepo garden —
+            where a gazebo awaits your afternoon tea.
+          </p>
+          <ul class="spec-list">
+            <li><strong>Sitting room</strong> with wood-burning fireplace</li>
+            <li><strong>Dining area</strong> with garden views</li>
+            <li><strong>Fully equipped</strong> self-catering kitchen</li>
+            <li><strong>Two en-suite bedrooms</strong> with premium linen</li>
+            <li><strong>Private balcony</strong> & access to Oilepo garden and gazebo</li>
+          </ul>
+          <a href="/contact" class="btn-book">Enquire &amp; Book</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dining -->
+  <section class="dining-section">
+    <div class="container">
+      <p class="section-label">Restaurants & Bars</p>
+      <h2 class="dining-heading">Three Venues, One Philosophy</h2>
+      <div class="restaurants">
+        {['Gemini', 'Sagitta', 'Cepheus'].map((name, i) => (
+          <div class="restaurant">
+            <div class="restaurant-img-wrap">
+              <Image src={restaurants[i]} alt={`${name} restaurant`} width={380} height={280} class="restaurant-img" />
+            </div>
+            <h3 class="restaurant-name">{name}</h3>
+            <p class="restaurant-desc">
+              {i === 0 && 'Relaxed all-day dining with lake views — fresh salads, grilled meats, and East African flavours.'}
+              {i === 1 && 'Intimate dinner venue with a focused tasting menu showcasing seasonal Kenyan produce.'}
+              {i === 2 && 'The bar and lounge — sundowners, artisanal cocktails, and a curated wine selection as the Rift Valley turns gold.'}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Highlights grid -->
+  <section class="highlights-section">
+    <div class="container">
+      <p class="section-label">What Makes It Special</p>
+      <h2 class="highlights-heading">Experiences at Oilepo Naivasha</h2>
+      <div class="highlights-grid">
+        {highlights.map((h) => (
+          <div class="highlight">
+            <h3 class="highlight-title">{h.title}</h3>
+            <p class="highlight-desc">{h.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-banner">
+    <div class="cta-bg">
+      <Image src={PUBLIC_STORAGE_URL+"/t/Oilepo/Naivasha/IMG_20240322_124914_132.jpg"} alt="Lake Naivasha sunset" width={1440} height={400} class="cta-bg-img" />
+      <div class="cta-overlay"></div>
+    </div>
+    <div class="cta-content">
+      <h2 class="cta-heading">Plan Your Naivasha Escape</h2>
+      <p class="cta-sub">Our team will craft the perfect itinerary for your stay.</p>
+      <a href="/contact" class="cta-btn">Contact Us</a>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .page-hero {
+    position: relative;
+    height: 70vh;
+    min-height: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .page-hero-bg { position: absolute; inset: 0; }
+  .page-hero-img { width: 100%; height: 100%; object-fit: cover; }
+  .page-hero-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.42); }
+  .page-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+    padding-top: 72px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .page-eyebrow {
+    font-family: var(--font-decorative);
+    font-size: 1rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    opacity: 0.85;
+    margin: 0;
+  }
+  .page-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    margin: 0;
+  }
+  .page-sub {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.8;
+    margin: 0;
+  }
+
+  .container { max-width: 1200px; margin: 0 auto; }
+
+  /* Intro */
+  .intro-section { padding: 5.5rem 1.5rem; }
+  .intro-inner { max-width: 760px; margin: 0 auto; text-align: center; }
+  .intro-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(1.5rem, 3.5vw, 2.4rem);
+    font-weight: 400;
+    color: var(--color-text-dark);
+    margin: 0 0 1.25rem;
+  }
+  .intro-lead {
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: var(--color-text);
+    margin: 0 0 1rem;
+  }
+  .intro-secondary {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--color-text-muted);
+    margin: 0;
+    font-style: italic;
+  }
+
+  /* Pillars */
+  .pillars-section {
+    padding: 5rem 1.5rem;
+    background: var(--color-text-dark);
+    color: #fff;
+  }
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+  }
+  .pillar {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 0 2rem 0 0;
+    border-right: 1px solid rgba(255,255,255,0.15);
+  }
+  .pillar:last-child { border-right: none; }
+  .pillar-number {
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    color: rgba(255,255,255,0.45);
+  }
+  .pillar-title {
+    font-family: var(--font-serif);
+    font-size: 1.7rem;
+    font-weight: 400;
+    margin: 0;
+    letter-spacing: 0.04em;
+  }
+  .pillar-desc {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.75);
+    margin: 0;
+  }
+
+  /* Detail */
+  .detail-section { padding: 6rem 1.5rem; }
+  .detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+  .detail-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+  .detail-img { width: 100%; object-fit: cover; display: block; }
+  .detail-img--main { grid-column: 1 / -1; height: 320px; }
+  .detail-img--sub { height: 170px; }
+
+  .detail-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin: 0 0 0.5rem;
+  }
+  .detail-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 400;
+    color: var(--color-text-dark);
+    margin: 0 0 1rem;
+  }
+  .detail-text p {
+    font-size: 0.95rem;
+    line-height: 1.85;
+    color: var(--color-text);
+    margin: 0 0 1.5rem;
+  }
+  .spec-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .spec-list li {
+    font-size: 0.875rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text);
+    line-height: 1.5;
+  }
+  .btn-book {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+    background: var(--color-accent);
+    padding: 0.8rem 2rem;
+    border-radius: 2px;
+    transition: background 0.2s;
+  }
+  .btn-book:hover { background: var(--color-accent-hover); }
+
+  /* Dining */
+  .dining-section { padding: 5.5rem 1.5rem; background: var(--color-surface); }
+  .section-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    text-align: center;
+    margin: 0 0 0.5rem;
+  }
+  .dining-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(1.5rem, 3.5vw, 2.4rem);
+    font-weight: 400;
+    text-align: center;
+    color: var(--color-text-dark);
+    margin: 0 0 3rem;
+  }
+  .restaurants {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+  .restaurant-img-wrap { overflow: hidden; margin-bottom: 1.25rem; }
+  .restaurant-img { width: 100%; height: 220px; object-fit: cover; display: block; transition: transform 0.5s; }
+  .restaurant-img-wrap:hover .restaurant-img { transform: scale(1.04); }
+  .restaurant-name {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--color-text-dark);
+    margin: 0 0 0.75rem;
+    letter-spacing: 0.04em;
+  }
+  .restaurant-desc { font-size: 0.9rem; line-height: 1.75; color: var(--color-text); margin: 0; }
+
+  /* Highlights */
+  .highlights-section { padding: 5.5rem 1.5rem; }
+  .highlights-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(1.5rem, 3.5vw, 2.4rem);
+    font-weight: 400;
+    text-align: center;
+    color: var(--color-text-dark);
+    margin: 0 0 3rem;
+  }
+  .highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  .highlight {
+    padding: 1.5rem;
+    border: 1px solid var(--color-border);
+    background: var(--color-background);
+  }
+  .highlight-title {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--color-text-dark);
+    margin: 0 0 0.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .highlight-desc { font-size: 0.875rem; line-height: 1.75; color: var(--color-text); margin: 0; }
+
+  /* CTA banner */
+  .cta-banner { position: relative; height: 380px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .cta-bg { position: absolute; inset: 0; }
+  .cta-bg-img { width: 100%; height: 100%; object-fit: cover; }
+  .cta-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.5); }
+  .cta-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .cta-heading { font-family: var(--font-serif); font-size: clamp(1.5rem, 3.5vw, 2.4rem); font-weight: 400; margin: 0; }
+  .cta-sub { font-size: 0.9rem; letter-spacing: 0.08em; margin: 0; opacity: 0.85; }
+  .cta-btn {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.7);
+    padding: 0.8rem 2.25rem;
+    margin-top: 0.5rem;
+    transition: background 0.2s;
+  }
+  .cta-btn:hover { background: rgba(255,255,255,0.15); }
+
+  @media (max-width: 921px) {
+    .pillars-grid, .restaurants, .highlights-grid { grid-template-columns: 1fr; }
+    .detail-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .pillar { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.15); padding: 0 0 2rem; }
+    .pillar:last-child { border-bottom: none; }
+  }
+  @media (max-width: 640px) {
+    .restaurants { grid-template-columns: 1fr; }
+    .highlights-grid { grid-template-columns: 1fr; }
+  }
+</style>

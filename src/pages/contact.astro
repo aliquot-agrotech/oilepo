@@ -1,0 +1,411 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { Image } from 'astro:assets';
+
+const { PUBLIC_STORAGE_URL } = import.meta.env;
+
+const offices = [
+  {
+    name: 'Corporate Office',
+    address: 'Chania Avenue, CMS-Africa Building, Kilimani, Nairobi',
+    phones: ['+254 798 785 638'],
+    email: 'info@oilepo.com',
+    web: 'www.oilepo.com',
+  },
+  {
+    name: 'Oilepo Amboseli',
+    address: 'Close to Amboseli National Park, Kimana Road, Kajiado, Kenya',
+    phones: ['+254 748 258 407', '+254 762 715 332'],
+    email: 'amboseli@oilepo.com',
+  },
+  {
+    name: 'Oilepo Naivasha',
+    address: 'Great Rift Valley Lodge, North Lake Road, Naivasha, Kenya',
+    phones: ['+254 798 785 638'],
+    email: 'info@oilepo.com',
+  },
+];
+---
+
+<BaseLayout title="Contact Us | Oilepo Safari Lodges">
+  <Header />
+
+  <!-- Page hero -->
+  <section class="page-hero">
+    <div class="page-hero-bg">
+      <Image
+        src={PUBLIC_STORAGE_URL + "/t/Oilepo/Hero/DJI_0266-1-scaled.jpg"}
+        alt="Oilepo aerial view"
+        width={1920}
+        height={600}
+        inferSize={true}
+        class="page-hero-img"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <div class="page-hero-overlay"></div>
+    </div>
+    <div class="page-hero-content">
+      <p class="page-eyebrow">Get in Touch</p>
+      <h1 class="page-title">Contact Us</h1>
+    </div>
+  </section>
+
+  <!-- Main content -->
+  <section class="contact-section">
+    <div class="container">
+
+      <!-- Intro -->
+      <div class="contact-intro">
+        <p class="intro-sub">Amboseli National Park Kenya &middot; Naivasha</p>
+        <h2 class="intro-heading">Plan Your Stay</h2>
+        <p class="intro-body">
+          Oilepo Amboseli Safari Lodge is located near Kilimanjaro, 800m from Kimana Gate
+          in the heart of Kenya's Amboseli National Park. Our team is ready to help you
+          plan your perfect safari experience.
+        </p>
+      </div>
+
+      <!-- Two-column layout: form + contact info -->
+      <div class="contact-grid">
+
+        <!-- Form -->
+        <div class="form-wrap">
+          <h3 class="form-heading">Send Us a Message</h3>
+          <form class="contact-form" novalidate>
+            <div class="field-row">
+              <div class="field">
+                <label for="first-name">First Name <span class="required">*</span></label>
+                <input type="text" id="first-name" name="first_name" autocomplete="given-name" required />
+              </div>
+              <div class="field">
+                <label for="last-name">Last Name <span class="required">*</span></label>
+                <input type="text" id="last-name" name="last_name" autocomplete="family-name" required />
+              </div>
+            </div>
+            <div class="field">
+              <label for="email">Email Address <span class="required">*</span></label>
+              <input type="email" id="email" name="email" autocomplete="email" required />
+            </div>
+            <div class="field">
+              <label for="property">Property of Interest</label>
+              <select id="property" name="property">
+                <option value="">— Select a property —</option>
+                <option value="amboseli">Oilepo Amboseli</option>
+                <option value="naivasha">Oilepo Naivasha</option>
+                <option value="both">Both Properties</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="message">Message <span class="required">*</span></label>
+              <textarea id="message" name="message" rows="6" required></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Send Message</button>
+          </form>
+        </div>
+
+        <!-- Contact info -->
+        <div class="info-wrap">
+          <h3 class="info-heading">Our Locations</h3>
+          <div class="offices">
+            {offices.map((office) => (
+              <div class="office">
+                <h4 class="office-name">{office.name}</h4>
+                <ul class="office-details">
+                  <li class="office-row">
+                    <span class="office-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </span>
+                    <span>{office.address}</span>
+                  </li>
+                  {office.phones.map((phone) => (
+                    <li class="office-row">
+                      <span class="office-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.08 6.08l1.08-.94a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                      </span>
+                      <a href={`tel:${phone.replace(/\s/g, '')}`}>{phone}</a>
+                    </li>
+                  ))}
+                  <li class="office-row">
+                    <span class="office-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </span>
+                    <a href={`mailto:${office.email}`}>{office.email}</a>
+                  </li>
+                  {office.web && (
+                    <li class="office-row">
+                      <span class="office-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                      </span>
+                      <span>{office.web}</span>
+                    </li>
+                  )}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  /* Hero */
+  .page-hero {
+    position: relative;
+    height: 60vh;
+    min-height: 380px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .page-hero-bg { position: absolute; inset: 0; }
+  .page-hero-img { width: 100%; height: 100%; object-fit: cover; }
+  .page-hero-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.45); }
+  .page-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+    padding-top: 72px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .page-eyebrow {
+    font-family: var(--font-decorative);
+    font-size: 1rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    opacity: 0.85;
+    margin: 0;
+  }
+  .page-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    margin: 0;
+  }
+
+  /* Section */
+  .contact-section {
+    padding: 5.5rem 1.5rem 6rem;
+  }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Intro */
+  .contact-intro {
+    max-width: 640px;
+    margin: 0 auto 4rem;
+    text-align: center;
+  }
+  .intro-sub {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin: 0 0 0.5rem;
+  }
+  .intro-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-weight: 400;
+    color: var(--color-text-dark);
+    margin: 0 0 1rem;
+    letter-spacing: 0.03em;
+  }
+  .intro-body {
+    font-size: 0.95rem;
+    line-height: 1.85;
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  /* Two-column grid */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  /* Form */
+  .form-heading,
+  .info-heading {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--color-text-dark);
+    margin: 0 0 1.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .field label {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-dark);
+  }
+
+  .required {
+    color: var(--color-accent);
+  }
+
+  .field input,
+  .field select,
+  .field textarea {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    color: var(--color-text);
+    background: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: 2px;
+    padding: 0.7rem 0.875rem;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+    box-sizing: border-box;
+    appearance: none;
+  }
+
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus {
+    border-color: var(--color-accent);
+  }
+
+  .field textarea {
+    resize: vertical;
+    min-height: 140px;
+  }
+
+  .field select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23808285' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.875rem center;
+    padding-right: 2.25rem;
+  }
+
+  .btn-submit {
+    align-self: flex-start;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #fff;
+    background: var(--color-accent);
+    border: none;
+    border-radius: 2px;
+    padding: 0.875rem 2.5rem;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .btn-submit:hover { background: var(--color-accent-hover); }
+
+  /* Contact info */
+  .offices {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .office {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .office:first-child { padding-top: 0; }
+
+  .office-name {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text-dark);
+    margin: 0 0 0.875rem;
+  }
+
+  .office-details {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .office-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.625rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--color-text);
+  }
+
+  .office-icon {
+    flex-shrink: 0;
+    color: var(--color-accent);
+    margin-top: 2px;
+    display: flex;
+  }
+
+  .office-row a {
+    color: var(--color-text);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .office-row a:hover { color: var(--color-accent); }
+
+  /* Responsive */
+  @media (max-width: 921px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+
+  @media (max-width: 540px) {
+    .field-row {
+      grid-template-columns: 1fr;
+    }
+    .btn-submit {
+      width: 100%;
+      text-align: center;
+    }
+  }
+</style>

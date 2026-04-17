@@ -1,0 +1,168 @@
+---
+import { Image } from 'astro:assets';
+import placeholder from '../assets/placeholder.svg';
+const { PUBLIC_STORAGE_URL } = import.meta.env;
+
+const destinations = [
+  {
+    name: 'OILEPO AMBOSELI',
+    href: '/amboseli',
+    src: PUBLIC_STORAGE_URL+"/t/Oilepo/Destinations/RR5H6263.jpg",
+    description:
+      'Nestled 800 metres from Amboseli National Park, our flagship camp places you at the foot of Mount Kilimanjaro, surrounded by sweeping plains teeming with elephant, lion, and cheetah.',
+  },
+  {
+    name: 'OILEPO NAIVASHA',
+    href: '/naivasha',
+    src: PUBLIC_STORAGE_URL+"/t/Oilepo/Destinations/IMG_20250516_135237_336.jpg",
+    description:
+      'Set on the shores of Lake Naivasha, this intimate retreat offers exceptional bird-watching, guided walking safaris, and boat excursions through papyrus-lined channels.',
+  },
+];
+---
+<section id="destinations">
+  <div class="container">
+    <h2 class="section-heading">Our Destinations</h2>
+    <p class="section-sub">Two extraordinary wilderness escapes in Kenya</p>
+
+    <div class="cards">
+      {destinations.map((dest) => (
+        <article class="card">
+          <a href={dest.href} class="card-img-link">
+            <Image
+              src={dest.src}
+              alt={dest.name}
+              width={640}
+              height={480}
+              class="card-img"
+            />
+          </a>
+          <div class="card-body">
+            <h3 class="card-title">
+              <a href={dest.href}>{dest.name}</a>
+            </h3>
+            <p class="card-desc">{dest.description}</p>
+            <a href={dest.href} class="card-link">Discover More</a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  #destinations {
+    background: var(--color-surface);
+    padding: 6rem 1.5rem;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 400;
+    color: var(--color-text-dark);
+    text-align: center;
+    letter-spacing: 0.04em;
+    margin: 0 0 0.5rem;
+  }
+
+  .section-sub {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    text-align: center;
+    margin: 0 0 4rem;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-img-link {
+    display: block;
+    overflow: hidden;
+  }
+
+  .card-img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+
+  .card-img-link:hover .card-img {
+    transform: scale(1.04);
+  }
+
+  .card-body {
+    padding: 1.75rem 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .card-title {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    margin: 0;
+  }
+
+  .card-title a {
+    text-decoration: none;
+    color: var(--color-text-dark);
+    transition: color 0.2s;
+  }
+
+  .card-title a:hover {
+    color: var(--color-accent);
+  }
+
+  .card-desc {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  .card-link {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--color-accent);
+    border-bottom: 1px solid var(--color-accent);
+    padding-bottom: 2px;
+    align-self: flex-start;
+    transition: opacity 0.2s;
+  }
+
+  .card-link:hover {
+    opacity: 0.75;
+  }
+
+  @media (max-width: 640px) {
+    .cards {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+  }
+</style>

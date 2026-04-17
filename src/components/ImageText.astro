@@ -1,0 +1,113 @@
+---
+import { Image } from 'astro:assets';
+import placeholder from '../assets/placeholder.svg';
+import type { SvgComponent } from 'astro/types';
+
+interface Props {
+  heading: string;
+  body: string;
+  imageAlt: string;
+  reverse?: boolean;
+  light?: boolean;
+  src?: any
+}
+
+const { heading, body, imageAlt, reverse = false, light = false, src=placeholder } = Astro.props;
+---
+<section class:list={['image-text', { reverse, light }]}>
+  <div class="container">
+    <div class="img-wrap">
+      <Image
+        src={src}
+        alt={imageAlt}
+        width={640}
+        height={520}
+        inferSize={true}
+        class="section-img"
+      />
+    </div>
+    <div class="text-wrap">
+      <h2 class="section-heading">{heading}</h2>
+      <p class="section-body">{body}</p>
+      <slot />
+    </div>
+  </div>
+</section>
+
+<style>
+  .image-text {
+    padding: 6rem 1.5rem;
+    background: var(--color-background);
+  }
+
+  .image-text.light {
+    background: var(--color-surface-alt);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .image-text.reverse .container {
+    direction: rtl;
+  }
+
+  .image-text.reverse .container > * {
+    direction: ltr;
+  }
+
+  .img-wrap {
+    overflow: hidden;
+  }
+
+  .section-img {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .text-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .section-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+    font-weight: 400;
+    color: var(--color-text-dark);
+    letter-spacing: 0.02em;
+    line-height: 1.25;
+    margin: 0;
+  }
+
+  .section-body {
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  @media (max-width: 921px) {
+    .container {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      direction: ltr;
+    }
+
+    .image-text.reverse .container {
+      direction: ltr;
+    }
+
+    .section-img {
+      height: 300px;
+    }
+  }
+</style>

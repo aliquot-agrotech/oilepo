@@ -1,0 +1,456 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { Image } from 'astro:assets';
+import placeholder from '../assets/placeholder.svg';
+
+const { PUBLIC_STORAGE_URL } = import.meta.env;
+// Gallery sections matching the live site structure
+const sections = [
+  {
+    id: 'luxury-tents',
+    title: 'Luxury Tents',
+    subtitle: 'Oilepo Amboseli',
+    photos: [
+      {
+        src:PUBLIC_STORAGE_URL+"/t/Oilepo/Gallery/RR5H6819-1.jpg",
+        alt: 'Luxury tent exterior at dusk',
+        caption: 'Tent Exterior', wide: true },
+      { 
+        src:PUBLIC_STORAGE_URL+"/t/Oilepo/Gallery/AMBOSELI PHOTOS LUXURY (2).jpg",
+        alt: 'Tent interior with queen bed',
+        aption: 'Tent Interior' 
+      },
+      { 
+        src:PUBLIC_STORAGE_URL+"/t/Oilepo/Gallery/TepStudios-137.jpg",
+        alt: 'En-suite bathroom with bathtub',
+        caption: 'En-Suite Bathroom' 
+      },
+      { 
+        src:PUBLIC_STORAGE_URL+"/t/Oilepo/Gallery/TepStudios-143.jpg",
+        alt: 'Tent verandah at golden hour',
+        caption: 'Private Verandah' 
+      },
+      { 
+        src:PUBLIC_STORAGE_URL+"/t/Oilepo/Gallery/RR5H6291.jpg",
+        alt: 'Mosquito net over bed at night',
+        caption: 'Evening Ambience' 
+      },
+      { 
+        src:PUBLIC_STORAGE_URL+"/t/Oilepo/Gallery/RR5H6824.jpg",
+        alt: 'Seating area inside tent',
+        caption: 'Lounge Area'
+      },
+      // { 
+      //   src:PUBLIC_STORAGE_URL+"/t/Oilepo/Gallery/AMBOSELI PHOTOS OILEPO AMBOSELI.jpg",
+      //   alt: 'View from verandah across grasslands', 
+      //   caption: 'Bush Views', wide: true 
+      // },
+      { 
+        src:PUBLIC_STORAGE_URL+"/t/Oilepo/Gallery/IMG-20230417-WA0075.jpg",
+        alt: 'Outdoor shower area', 
+        caption: 'Outdoor Shower',
+        wide: true 
+      },
+      // { 
+      //   src:PUBLIC_STORAGE_URL+"/t/Oilepo/Gallery/20260328_071910.jpg",
+      //   alt: 'Tent at sunrise with mist', 
+      //   caption: 'Morning Mist' 
+      // },
+    ],
+  },
+  {
+    id: 'clubhouse',
+    title: 'Clubhouse',
+    subtitle: 'Dining & Common Areas',
+    photos: [
+       { 
+        src:PUBLIC_STORAGE_URL+"/t/Oilepo/Website Photos/RR5H6251.jpg",
+        alt: 'Amboseli National Park restaurant dining experience — Night Still',
+        caption: 'Night Still', 
+        wide: true 
+      },
+      { 
+        src:PUBLIC_STORAGE_URL+"/t/Oilepo/Website Photos/RR5H6250-1-scaled.jpg",
+        alt: 'Amboseli National Park restaurant dining experience — main hall',
+        caption: 'Main Dining Hall', 
+        wide: true 
+      },
+      { 
+        src:PUBLIC_STORAGE_URL+"/t/Oilepo/Website Photos/RR5H6435.jpg",
+        alt: 'RR5H6260 — Bar and lounge area', 
+        caption: 'Bar & Lounge' 
+      },
+      { 
+        src:PUBLIC_STORAGE_URL+"/t/Oilepo/Website Photos/Restaurant.jpg",
+        alt: 'TepStudios-180 — Outdoor dining terrace',
+        caption: 'Outdoor Terrace' 
+      },
+      { 
+        src:PUBLIC_STORAGE_URL+"/t/Oilepo/Website Photos/RR5H6242.jpg",
+        alt: 'Amboseli National Park restaurant dining experience — sunset table',
+        caption: 'Sunset Dining', 
+        wide: true 
+      },
+      { 
+        src:PUBLIC_STORAGE_URL+"/t/Oilepo/Website Photos/Reception Desk.jpg",
+        alt: 'TepStudios-190 — Reception and common area', 
+        caption: 'Reception' 
+      },
+      { 
+        src:PUBLIC_STORAGE_URL+"/t/Oilepo/Website Photos/RR5H7182.jpg",
+        alt: 'RR5H6275 — Pool and lounge chairs', 
+        caption: 'Swimming Pool' 
+      },
+      { 
+        src:PUBLIC_STORAGE_URL+"/t/Oilepo/Website Photos/RR5H7342.jpg",
+        alt: 'TepStudios-195 — Kitchen plating a dish',
+        caption: 'Culinary Detail' 
+      },
+      { 
+        src:PUBLIC_STORAGE_URL+"/t/Oilepo/Website Photos/IMG_8477.jpg",
+        alt: 'Oilepo Staff', 
+        caption: 'Oilepo Team' 
+      },
+            { 
+        src:PUBLIC_STORAGE_URL+"/t/Oilepo/Gallery/RR5H6226.jpg",
+        alt: 'Local artwork',
+        caption: 'Local Artwork' 
+      },
+    ],
+  },
+  {
+    id: 'overview',
+    title: 'Oilepo Amboseli',
+    subtitle: 'Aerial & Property Overview',
+    photos: [
+      { 
+        src:PUBLIC_STORAGE_URL+"/t/Oilepo/Website Photos/DJI_0312.jpg",
+        alt: 'DJI_0255 — Aerial camp overview from the north',
+        caption: 'Camp from the Air', 
+        wide: true 
+      },
+      { 
+        src:PUBLIC_STORAGE_URL+"/t/Oilepo/Website Photos/Bush Dinner.jpg",
+        alt: 'DJI_0266 — Drone shot over camp at sunrise', 
+        caption: 'Sunrise View' 
+      },
+      { 
+        src:PUBLIC_STORAGE_URL+"/t/Oilepo/Website Photos/DJI_0364.jpg",
+        alt: 'DJI_0287 — Aerial view showing elephant herd near camp', 
+        caption: 'Elephants Near Camp' 
+      },
+      { 
+        src:PUBLIC_STORAGE_URL+"/t/Oilepo/Website Photos/DJI_0251-1.jpg",
+        alt: 'DJI_0291 — Bird\'s-eye view of Kilimanjaro over landscape',
+        caption: 'Kilimanjaro Aerial',
+        wide: true 
+      },
+      { 
+        src:PUBLIC_STORAGE_URL+"/t/Oilepo/Website Photos/DJI_0379-1.jpg",
+        alt: 'DJI_0301 — Drone shot of waterhole with animals', 
+        caption: 'Waterhole Activity' 
+      },
+      { 
+        src:PUBLIC_STORAGE_URL+"/t/Oilepo/Website Photos/DJI_0351.jpg",
+        alt: 'DJI_0343 — Wide aerial of Amboseli plains', 
+        caption: 'Amboseli Plains' 
+      },
+      { 
+        src:PUBLIC_STORAGE_URL+"/t/Oilepo/Website Photos/DJI_0379-1.jpg",
+        alt: 'DJI_0351 — Camp nestled in trees from above',
+        caption: 'Camp in the Trees' 
+      },
+      { 
+        src:PUBLIC_STORAGE_URL+"/t/Oilepo/Gallery/AMBOSELI PHOTOS OILEPO AMBOSELI (2).jpg",
+        alt: 'View at golden hour', 
+        caption: 'Golden Hour', 
+      },
+            { 
+        src:PUBLIC_STORAGE_URL+"/t/Oilepo/Website Photos/RR5H6216 (1).jpg",
+        alt: 'TepStudios-185 — Bonfire circle at night', 
+        caption: 'Evening Bonfire' 
+      },
+      { 
+        src:PUBLIC_STORAGE_URL+"/t/Oilepo/Gallery/DJI_0301.jpg",
+        alt: 'RR5H6260 — Ground-level camp entrance sign', 
+        caption: 'Camp Entrance' 
+      },
+      { 
+        src:PUBLIC_STORAGE_URL+"/t/Oilepo/Website Photos/Exec Boardroom.jpeg",
+        alt: 'Board Room', 
+        caption: 'Board Room' 
+      },
+      { 
+        src:PUBLIC_STORAGE_URL+"/t/Oilepo/Gallery/DJI_0287-1.jpg",
+        alt: 'RR5H6303 — Landscaping and pathways', 
+        caption: 'Camp Grounds' 
+      },
+      { 
+        src:PUBLIC_STORAGE_URL+"/t/Oilepo/Gallery/TepStudios - Copy.jpg",
+        alt: 'DJI_0343-1 — Alternate aerial at dawn', 
+        caption: 'Dawn Aerial',
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout title="Photo Gallery | Oilepo Amboseli">
+  <Header />
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="page-hero-bg">
+      <Image src={PUBLIC_STORAGE_URL+"/t/Oilepo/Gallery/20260328_173508.jpg"} alt="Oilepo Amboseli aerial view" width={1920} height={600} class="page-hero-img" loading="eager" fetchpriority="high" />
+      <div class="page-hero-overlay"></div>
+    </div>
+    <div class="page-hero-content">
+      <p class="page-eyebrow">Oilepo Amboseli</p>
+      <h1 class="page-title">Photo Gallery</h1>
+    </div>
+  </section>
+
+  <!-- Section nav -->
+  <nav class="gallery-nav" aria-label="Gallery sections">
+    <div class="gallery-nav-inner">
+      {sections.map((s) => (
+        <a href={`#${s.id}`} class="gallery-nav-link">{s.title}</a>
+      ))}
+    </div>
+  </nav>
+
+  <!-- Gallery sections -->
+  {sections.map((section) => (
+    <section class="gallery-section" id={section.id}>
+      <div class="container">
+        <div class="gallery-section-header">
+          <p class="gallery-label">{section.subtitle}</p>
+          <h2 class="gallery-heading">{section.title}</h2>
+        </div>
+        <div class="photo-grid">
+          {section.photos.map((photo) => (
+            <div class:list={['photo-item', { 'photo-item--wide': photo.wide }]}>
+              <div class="photo-wrap">
+                <Image
+                  src={photo.src ?? placeholder}
+                  alt={photo.alt}
+                  width={photo.wide ? 840 : 420}
+                  height={photo.wide ? 480 : 360}
+                  class="photo-img"
+                />
+                <div class="photo-caption">{photo.caption}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <!-- CTA -->
+  <section class="gallery-cta">
+    <div class="container gallery-cta-inner">
+      <h2 class="gallery-cta-heading">Experience It in Person</h2>
+      <p class="gallery-cta-body">No photograph fully captures the scale of an elephant at dawn, or the stillness of Kilimanjaro above the mist. Come see it for yourself.</p>
+      <a href="/contact" class="btn-book">Book Your Stay</a>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  /* Hero */
+  .page-hero {
+    position: relative;
+    height: 60vh;
+    min-height: 380px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .page-hero-bg { position: absolute; inset: 0; }
+  .page-hero-img { width: 100%; height: 100%; object-fit: cover; }
+  .page-hero-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.42); }
+  .page-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+    padding-top: 72px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .page-eyebrow {
+    font-family: var(--font-decorative);
+    font-size: 1rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    opacity: 0.85;
+    margin: 0;
+  }
+  .page-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    margin: 0;
+  }
+
+  /* Gallery nav */
+  .gallery-nav {
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 72px;
+    z-index: 50;
+  }
+  .gallery-nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    gap: 0;
+  }
+  .gallery-nav-link {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--color-text-muted);
+    padding: 1rem 1.5rem;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .gallery-nav-link:hover {
+    color: var(--color-text-dark);
+    border-bottom-color: var(--color-accent);
+  }
+
+  /* Container */
+  .container { max-width: 1200px; margin: 0 auto; }
+
+  /* Gallery section */
+  .gallery-section { padding: 5rem 1.5rem; }
+  .gallery-section:nth-child(even) { background: var(--color-surface); }
+
+  .gallery-section-header { margin-bottom: 2.5rem; }
+  .gallery-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin: 0 0 0.4rem;
+  }
+  .gallery-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-weight: 400;
+    color: var(--color-text-dark);
+    margin: 0;
+    letter-spacing: 0.04em;
+  }
+
+  /* Photo grid — masonry-style with CSS grid areas */
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+  }
+  .photo-item { overflow: hidden; }
+  .photo-item--wide { grid-column: span 2; }
+
+  .photo-wrap {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .photo-img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+  .photo-item--wide .photo-img { height: 340px; }
+
+  .photo-wrap:hover .photo-img { transform: scale(1.04); }
+
+  .photo-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.6));
+    color: #fff;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    padding: 1.5rem 0.875rem 0.6rem;
+    transform: translateY(100%);
+    transition: transform 0.3s;
+  }
+  .photo-wrap:hover .photo-caption { transform: translateY(0); }
+
+  /* CTA */
+  .gallery-cta {
+    padding: 5rem 1.5rem;
+    background: var(--color-text-dark);
+    color: #fff;
+  }
+  .gallery-cta-inner {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  .gallery-cta-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(1.5rem, 3.5vw, 2.4rem);
+    font-weight: 400;
+    margin: 0;
+    letter-spacing: 0.04em;
+  }
+  .gallery-cta-body {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.75);
+    margin: 0;
+    max-width: 560px;
+  }
+  .btn-book {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.6);
+    padding: 0.8rem 2.25rem;
+    margin-top: 0.5rem;
+    transition: background 0.2s;
+  }
+  .btn-book:hover { background: rgba(255,255,255,0.12); }
+
+  @media (max-width: 921px) {
+    .photo-grid { grid-template-columns: repeat(2, 1fr); }
+    .photo-item--wide { grid-column: span 2; }
+  }
+  @media (max-width: 540px) {
+    .photo-grid { grid-template-columns: 1fr; }
+    .photo-item--wide { grid-column: span 1; }
+    .photo-img, .photo-item--wide .photo-img { height: 240px; }
+    .gallery-nav-inner { overflow-x: auto; flex-wrap: nowrap; }
+    .gallery-nav-link { white-space: nowrap; }
+  }
+</style>

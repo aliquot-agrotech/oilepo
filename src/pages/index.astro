@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Destinations from '../components/Destinations.astro';
+import ImageText from '../components/ImageText.astro';
+import Footer from '../components/Footer.astro';
+
+const { PUBLIC_STORAGE_URL } = import.meta.env;
+---
+
+<BaseLayout title="Oilepo | Luxury Safari Camps in Kenya">
+  <Header />
+  <Hero />
+  <Destinations />
+  <ImageText
+    src={PUBLIC_STORAGE_URL+"/t/Oilepo/Destinations/RR5H6565.jpg"}
+    heading="Tranquil Proximity to Amboseli National Park"
+    body="Situated 800 metres from Amboseli National Park, Oilepo Amboseli offers unparalleled access to the iconic landscapes and wildlife of one of Kenya's most celebrated reserves. Wake each morning to the silhouette of Mount Kilimanjaro framed above a procession of elephants."
+    imageAlt="Amboseli landscape with elephants"
+  />
+  <ImageText
+  src={PUBLIC_STORAGE_URL+"/t/Oilepo/Destinations/RR5H6624.jpg"}
+    heading="For Those With an Adventurous Spirit"
+    body="Wake to the sounds of the African bush. Oilepo's tented camps place you at the heart of the wilderness — guided game drives, sundowner ceremonies, and starlit nights beneath an infinite sky. Every moment is an encounter with the wild."
+    imageAlt="Safari game drive at golden hour"
+    reverse={true}
+    light={true}
+  />
+  <Footer />
+</BaseLayout>

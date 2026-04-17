@@ -1,0 +1,171 @@
+---
+import { Image } from 'astro:assets';
+import placeholder from '../assets/placeholder.svg';
+
+const { PUBLIC_STORAGE_URL } = import.meta.env;
+---
+<section id="hero">
+  <!-- Slideshow background -->
+  <div class="slides">
+    <Image
+      src={PUBLIC_STORAGE_URL+"/t/Oilepo/Hero/RR5H6278-1-scaled.jpg"}
+      alt=""
+      class="slide slide-1"
+      widths={[768, 1280, 1920]}
+      sizes="100vw"
+      loading="eager"
+      inferSize={true}
+      fetchpriority="high"
+    />
+    <Image
+      src={PUBLIC_STORAGE_URL+"/t/Oilepo/Hero/TepStudios-40-Edit.jpg"}
+      alt=""
+      class="slide slide-2"
+      widths={[768, 1280, 1920]}
+      sizes="100vw"
+      inferSize={true}
+      loading="eager"
+    />
+    <Image
+      src={PUBLIC_STORAGE_URL+"/t/Oilepo/Hero/TepStudios-69.jpg"}
+      alt=""
+      class="slide slide-3"
+      widths={[768, 1280, 1920]}
+      sizes="100vw"
+      inferSize={true}
+      loading="eager"
+    />
+    <Image
+      src={PUBLIC_STORAGE_URL+"/t/Oilepo/Hero/DJI_0266-1-scaled.jpg"}
+      alt=""
+      class="slide slide-4"
+      widths={[768, 1280, 1920]}
+      sizes="100vw"
+      inferSize={true}
+      loading="eager"
+    />
+  </div>
+
+  <!-- Dark overlay -->
+  <div class="overlay"></div>
+
+  <!-- Content -->
+  <div class="hero-content">
+    <p class="eyebrow">WELCOME TO</p>
+    <h1 class="hero-title">OILEPO</h1>
+    <p class="hero-sub">Luxury Safari Camps in Kenya</p>
+    <a href="/contact" class="hero-cta">Book Your Stay</a>
+  </div>
+</section>
+
+<style>
+  #hero {
+    position: relative;
+    width: 100%;
+    min-height: 80svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  /* Slideshow */
+  .slides {
+    position: absolute;
+    inset: 0;
+  }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /*
+   * 4-image crossfade — 24s total cycle (6s per image, ~1s fade overlap).
+   * Negative delays pre-position each slide so they stagger by exactly 6s.
+   *   slide-1: position  0s → visible from t=0
+   *   slide-2: position 18s → visible from t=6s
+   *   slide-3: position 12s → visible from t=12s
+   *   slide-4: position  6s → visible from t=18s
+   */
+  .slide-1 { animation: crossfade 24s   0s infinite; }
+  .slide-2 { animation: crossfade 24s -18s infinite; }
+  .slide-3 { animation: crossfade 24s -12s infinite; }
+  .slide-4 { animation: crossfade 24s  -6s infinite; }
+
+  @keyframes crossfade {
+    0%, 20.8%  { opacity: 1; } /* visible — hold */
+    25%        { opacity: 0; } /* fade out complete  (6/24) */
+    95.8%      { opacity: 0; } /* still hidden       (23/24) */
+    100%       { opacity: 1; } /* fade back in (loops into 0%) */
+  }
+
+  /* Overlay */
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.42);
+  }
+
+  /* Content */
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .eyebrow {
+    font-family: var(--font-decorative);
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    letter-spacing: 0.35em;
+    margin: 0;
+    opacity: 0.9;
+  }
+
+  .hero-title {
+    font-family: var(--font-serif);
+    font-size: clamp(4rem, 13vw, 9rem);
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    line-height: 1;
+    margin: 0;
+  }
+
+  .hero-sub {
+    font-family: var(--font-sans);
+    font-size: clamp(0.8rem, 1.8vw, 1rem);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin: 0;
+    opacity: 0.85;
+  }
+
+  .hero-cta {
+    margin-top: 0.75rem;
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    padding: 0.9rem 2.5rem;
+    transition: background 0.25s, border-color 0.25s;
+  }
+
+  .hero-cta:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #fff;
+  }
+</style>

@@ -1,0 +1,318 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { Image } from 'astro:assets';
+import placeholder from '../assets/placeholder.svg';
+
+const values = [
+  {
+    heading: 'Philosophy and Inspiration',
+    body: 'We curate experiences that transcend traditional notions of travel and hospitality. At Oilepo, every detail — from the way light falls across the savanna at dawn to the warmth of an evening fire — is thoughtfully considered to offer rejuvenation for body, mind, and spirit.',
+  },
+  {
+    heading: 'Immersive Experiences',
+    body: 'Go beyond the game drive. Our guides are lifelong students of the bush, interpreting landscapes, tracking wildlife, and sharing the deep ecological and cultural knowledge that transforms a safari into a living education.',
+  },
+  {
+    heading: 'Harmony with Nature',
+    body: 'Our camps are built to tread lightly. From solar energy and responsible water use to waste-reduction practices, we are committed to leaving the wild places we inhabit better than we found them — for wildlife and for the communities that call these landscapes home.',
+  },
+  {
+    heading: 'Community Connection',
+    body: 'Oilepo actively collaborates with local artisans, chefs, and guides to ensure that every visit enriches authentic culture and heritage. The art on your walls, the food on your table, and the stories told around the fire all come from the people of this land.',
+  },
+];
+const { PUBLIC_STORAGE_URL } = import.meta.env;
+---
+
+<BaseLayout title="About Oilepo | Luxury Safari Camps in Kenya">
+  <Header />
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="page-hero-bg">
+      <Image  src={PUBLIC_STORAGE_URL+"/t/Oilepo/About_Us/aboutus banner.jpg"} alt="Oilepo landscape" width={1920} height={600} class="page-hero-img" loading="eager" fetchpriority="high" />
+      <div class="page-hero-overlay"></div>
+    </div>
+    <div class="page-hero-content">
+      <p class="page-eyebrow">Our Story</p>
+      <h1 class="page-title">About Oilepo</h1>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <section class="intro-section">
+    <div class="container">
+      <div class="intro-inner">
+        <h2 class="intro-heading">Discover the Essence of Oilepo</h2>
+        <p class="intro-lead">
+          Oilepo is a family-owned collection of two intimate wilderness camps rooted in a
+          philosophy that seeks to offer rejuvenation for body, mind, and spirit. Anchored by
+          the iconic landscapes of Mount Kilimanjaro in Amboseli and the sweeping panoramas
+          of the Great Rift Valley at Naivasha, each property is a gateway to wild Kenya in its
+          most undisturbed form.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Image + Intro photo -->
+  <section class="about-image-section">
+    <div class="container-wide">
+      <Image src={PUBLIC_STORAGE_URL+"/t/f_webp/Oilepo/About_Us/DJI_0370.jpg"} alt="Oilepo camp at sunrise" width={1200} height={500} class="about-wide-img" />
+    </div>
+  </section>
+
+  <!-- Values grid -->
+  <section class="values-section">
+    <div class="container">
+      <p class="section-label">What We Stand For</p>
+      <div class="values-grid">
+        {values.map((v) => (
+          <div class="value-card">
+            <h3 class="value-heading">{v.heading}</h3>
+            <p class="value-body">{v.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Welcome block -->
+  <section class="welcome-section">
+    <div class="container welcome-inner">
+      <div class="welcome-text">
+        <h2 class="welcome-heading">Welcome to the World of Oilepo</h2>
+        <p>
+          Whether you arrive seeking adventure, stillness, or simply the profound pleasure of
+          watching an elephant move through golden light, Oilepo offers a home in the wild.
+          Two camps. One philosophy. Limitless possibility.
+        </p>
+        <div class="welcome-ctas">
+          <a href="/amboseli" class="btn-primary">Oilepo Amboseli</a>
+          <a href="/naivasha" class="btn-secondary">Oilepo Naivasha</a>
+        </div>
+      </div>
+      <div class="welcome-img-wrap">
+        <Image src={PUBLIC_STORAGE_URL+"/t/Oilepo/About_Us/about us oilepo naivasha.jpg"} alt="Oilepo interior" width={560} height={480} class="welcome-img" />
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  /* Page hero */
+  .page-hero {
+    position: relative;
+    height: 65vh;
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .page-hero-bg {
+    position: absolute;
+    inset: 0;
+  }
+  .page-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .page-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+  }
+  .page-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+    padding-top: 72px; /* header height */
+  }
+  .page-eyebrow {
+    font-family: var(--font-decorative);
+    font-size: 1.1rem;
+    letter-spacing: 0.3em;
+    margin: 0 0 0.5rem;
+    opacity: 0.85;
+    text-transform: uppercase;
+  }
+  .page-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2.5rem, 7vw, 5.5rem);
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    margin: 0;
+  }
+
+  /* Intro */
+  .intro-section {
+    padding: 5rem 1.5rem;
+    background: var(--color-background);
+  }
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .container-wide {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+  .intro-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .intro-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    color: var(--color-text-dark);
+    margin: 0 0 1.5rem;
+  }
+  .intro-lead {
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  /* Wide image */
+  .about-image-section {
+    padding: 0;
+  }
+  .about-wide-img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Values */
+  .values-section {
+    padding: 5rem 1.5rem;
+    background: var(--color-surface);
+  }
+  .section-label {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    text-align: center;
+    margin: 0 0 3rem;
+  }
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem 4rem;
+  }
+  .value-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .value-heading {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--color-text-dark);
+    margin: 0;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .value-body {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  /* Welcome */
+  .welcome-section {
+    padding: 6rem 1.5rem;
+    background: var(--color-background);
+  }
+  .welcome-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+  .welcome-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 400;
+    color: var(--color-text-dark);
+    margin: 0 0 1.25rem;
+  }
+  .welcome-text p {
+    font-size: 0.95rem;
+    line-height: 1.85;
+    color: var(--color-text);
+    margin: 0 0 2rem;
+  }
+  .welcome-ctas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+    background: var(--color-accent);
+    padding: 0.75rem 1.75rem;
+    border-radius: 2px;
+    transition: background 0.2s;
+  }
+  .btn-primary:hover { background: var(--color-accent-hover); }
+  .btn-secondary {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--color-accent);
+    border: 1px solid var(--color-accent);
+    padding: 0.75rem 1.75rem;
+    border-radius: 2px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .btn-secondary:hover {
+    background: var(--color-accent);
+    color: #fff;
+  }
+  .welcome-img-wrap {
+    overflow: hidden;
+  }
+  .welcome-img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+  }
+
+  @media (max-width: 921px) {
+    .values-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .welcome-inner {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    .welcome-img { height: 280px; }
+  }
+</style>
