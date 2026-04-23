@@ -1,31 +1,31 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { Image } from 'astro:assets';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { Image } from "astro:assets";
 
 const { PUBLIC_STORAGE_URL } = import.meta.env;
 
 const offices = [
-  {
-    name: 'Corporate Office',
-    address: 'Chania Avenue, CMS-Africa Building, Kilimani, Nairobi',
-    phones: ['+254 798 785 638'],
-    email: 'info@oilepo.com',
-    web: 'www.oilepo.com',
-  },
-  {
-    name: 'Oilepo Amboseli',
-    address: 'Close to Amboseli National Park, Kimana Road, Kajiado, Kenya',
-    phones: ['+254 748 258 407', '+254 762 715 332'],
-    email: 'amboseli@oilepo.com',
-  },
-  {
-    name: 'Oilepo Naivasha',
-    address: 'Great Rift Valley Lodge, North Lake Road, Naivasha, Kenya',
-    phones: ['+254 798 785 638'],
-    email: 'info@oilepo.com',
-  },
+	{
+		name: "Corporate Office",
+		address: "Chania Avenue, CMS-Africa Building, Kilimani, Nairobi",
+		phones: ["+254 798 785 638"],
+		email: "info@oilepo.com",
+		web: "www.oilepo.com",
+	},
+	{
+		name: "Oilepo Amboseli",
+		address: "Close to Amboseli National Park, Kimana Road, Kajiado, Kenya",
+		phones: ["+254 748 258 407", "+254 762 715 332"],
+		email: "amboseli@oilepo.com",
+	},
+	{
+		name: "Oilepo Naivasha",
+		address: "Great Rift Valley Lodge, North Lake Road, Naivasha, Kenya",
+		phones: ["+254 798 785 638"],
+		email: "info@oilepo.com",
+	},
 ];
 ---
 

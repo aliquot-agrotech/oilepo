@@ -1,23 +1,22 @@
 ---
-import { Image } from 'astro:assets';
-import placeholder from '../assets/placeholder.svg';
+import { Image } from "astro:assets";
 const { PUBLIC_STORAGE_URL } = import.meta.env;
 
 const destinations = [
-  {
-    name: 'OILEPO AMBOSELI',
-    href: '/amboseli',
-    src: PUBLIC_STORAGE_URL+"/t/Oilepo/Destinations/RR5H6263.jpg",
-    description:
-      'Nestled 800 metres from Amboseli National Park, our flagship camp places you at the foot of Mount Kilimanjaro, surrounded by sweeping plains teeming with elephant, lion, and cheetah.',
-  },
-  {
-    name: 'OILEPO NAIVASHA',
-    href: '/naivasha',
-    src: PUBLIC_STORAGE_URL+"/t/Oilepo/Destinations/IMG_20250516_135237_336.jpg",
-    description:
-      'Set on the shores of Lake Naivasha, this intimate retreat offers exceptional bird-watching, guided walking safaris, and boat excursions through papyrus-lined channels.',
-  },
+	{
+		name: "OILEPO AMBOSELI",
+		href: "/amboseli",
+		src: `${PUBLIC_STORAGE_URL}/t/Oilepo/Destinations/RR5H6263.jpg`,
+		description:
+			"Nestled 800 metres from Amboseli National Park, our flagship camp places you at the foot of Mount Kilimanjaro, surrounded by sweeping plains teeming with elephant, lion, and cheetah.",
+	},
+	{
+		name: "OILEPO NAIVASHA",
+		href: "/naivasha",
+		src: `${PUBLIC_STORAGE_URL}/t/Oilepo/Destinations/IMG_20250516_135237_336.jpg`,
+		description:
+			"Set on the shores of Lake Naivasha, this intimate retreat offers exceptional bird-watching, guided walking safaris, and boat excursions through papyrus-lined channels.",
+	},
 ];
 ---
 <section id="destinations">

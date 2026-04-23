@@ -1,25 +1,59 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { Image } from 'astro:assets';
-import placeholder from '../assets/placeholder.svg';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { Image } from "astro:assets";
 
 const cottageFeatures = [
-  { label: 'Living Area', detail: 'A cosy atmosphere ideal for gatherings and family time.' },
-  { label: 'Bedrooms', detail: 'King bed in the primary bedroom, twin beds in the secondary, plus a shared bathroom and private porch overlooking grasslands.' },
-  { label: 'Kitchenette', detail: 'Fully equipped, ideal for groups and families.' },
-  { label: 'Bathroom', detail: 'Thoughtfully supplied with the finest amenities.' },
-  { label: 'Porch', detail: 'Private deck with unobstructed views across the grasslands towards Kilimanjaro.' },
-  { label: 'Décor', detail: 'Curated local antiques and original artwork by Kenyan artists.' },
+	{
+		label: "Living Area",
+		detail: "A cosy atmosphere ideal for gatherings and family time.",
+	},
+	{
+		label: "Bedrooms",
+		detail:
+			"King bed in the primary bedroom, twin beds in the secondary, plus a shared bathroom and private porch overlooking grasslands.",
+	},
+	{
+		label: "Kitchenette",
+		detail: "Fully equipped, ideal for groups and families.",
+	},
+	{
+		label: "Bathroom",
+		detail: "Thoughtfully supplied with the finest amenities.",
+	},
+	{
+		label: "Porch",
+		detail:
+			"Private deck with unobstructed views across the grasslands towards Kilimanjaro.",
+	},
+	{
+		label: "Décor",
+		detail: "Curated local antiques and original artwork by Kenyan artists.",
+	},
 ];
 
 const tentFeatures = [
-  { label: 'Bed', detail: 'Queen-size beds with premium linen and full mosquito netting.' },
-  { label: 'Seating', detail: 'Separate lounge area with camp chairs and reading light.' },
-  { label: 'Bathroom', detail: 'Private en-suite with bathtub and quality amenities.' },
-  { label: 'Views', detail: 'Private verandah framing open bush and Kilimanjaro on clear days.' },
-  { label: 'Connectivity', detail: 'Wi-Fi available in common areas; deliberate disconnect in tents.' },
+	{
+		label: "Bed",
+		detail: "Queen-size beds with premium linen and full mosquito netting.",
+	},
+	{
+		label: "Seating",
+		detail: "Separate lounge area with camp chairs and reading light.",
+	},
+	{
+		label: "Bathroom",
+		detail: "Private en-suite with bathtub and quality amenities.",
+	},
+	{
+		label: "Views",
+		detail: "Private verandah framing open bush and Kilimanjaro on clear days.",
+	},
+	{
+		label: "Connectivity",
+		detail: "Wi-Fi available in common areas; deliberate disconnect in tents.",
+	},
 ];
 const { PUBLIC_STORAGE_URL } = import.meta.env;
 ---
@@ -74,7 +108,7 @@ const { PUBLIC_STORAGE_URL } = import.meta.env;
           <h2 class="accom-heading">Family Cottages</h2>
           <p class="accom-intro">
             Our two-bedroom family cottages are built for togetherness. Decorated with local
-            antiques and artwork, each cottage offers a private porch overlooking the grasslands —
+            antiques and artwork, each cottage offers a private porch overlooking the grasslands,
             perfect for sunrise coffee as elephants move along the tree-line.
           </p>
           <ul class="feature-list">
@@ -103,7 +137,7 @@ const { PUBLIC_STORAGE_URL } = import.meta.env;
           <h2 class="accom-heading">Luxury Tents</h2>
           <p class="accom-intro">
             Fall asleep to the distant calls of the African night. Our luxury tented suites pair
-            the romance of classic safari camping with the indulgence of boutique hospitality —
+            the romance of classic safari camping with the indulgence of boutique hospitality,
             queen-size beds, private bathtubs, and a verandah that frames an infinite sky.
           </p>
           <ul class="feature-list">
@@ -133,7 +167,7 @@ const { PUBLIC_STORAGE_URL } = import.meta.env;
       <div class="experience-cards">
         {[
           { title: 'Game Drives', desc: 'Morning and evening drives into Amboseli National Park led by expert guides with deep knowledge of the ecosystem.' },
-          { title: 'Walking Safaris', desc: 'Track big game on foot alongside Maasai guides — an unfiltered encounter with the African bush.' },
+          { title: 'Walking Safaris', desc: 'Track big game on foot alongside Maasai guides, an unfiltered encounter with the African bush.' },
           { title: 'Cultural Visits', desc: "Visit authentic Maasai manyattas and witness the traditions of one of East Africa's most iconic communities." },
           { title: 'Sundowners', desc: 'Watch Kilimanjaro turn pink at dusk from a private viewpoint, sundowner in hand.' },
         ].map((exp) => (

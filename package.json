@@ -9,16 +9,21 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "fmt": "bunx --bun @biomejs/biome format --write ./src",
+    "lint": "bunx --bun @biomejs/biome lint --write ./src"
   },
   "dependencies": {
-    "@astrojs/node": "^10.0.5",
-    "@tailwindcss/vite": "^4.2.2",
-    "astro": "^6.1.7",
+    "@astrojs/check": "^0.9.8",
+    "@astrojs/node": "10.0.6",
+    "@tailwindcss/vite": "^4.2.4",
+    "astro": "6.1.9",
     "sharp": "^0.34.5",
-    "tailwindcss": "^4.2.2"
+    "tailwindcss": "^4.2.4",
+    "typescript": "^6.0.3"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.4.12",
     "@playwright/test": "^1.59.1",
     "@types/node": "^25.6.0"
   }

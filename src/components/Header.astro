@@ -2,17 +2,17 @@
 const { pathname } = Astro.url;
 
 const navLinks = [
-  { href: '/',         label: 'Home' },
-  { href: '/about',    label: 'About' },
-  { href: '/amboseli', label: 'Oilepo Amboseli' },
-  { href: '/naivasha', label: 'Oilepo Naivasha' },
-  { href: '/gallery',  label: 'Photo Gallery' },
-  { href: '/contact',  label: 'Contact' },
+	{ href: "/", label: "Home" },
+	{ href: "/about", label: "About" },
+	{ href: "/amboseli", label: "Oilepo Amboseli" },
+	{ href: "/naivasha", label: "Oilepo Naivasha" },
+	{ href: "/gallery", label: "Photo Gallery" },
+	{ href: "/contact", label: "Contact" },
 ];
 
 function isActive(href: string) {
-  if (href === '/') return pathname === '/';
-  return pathname.startsWith(href);
+	if (href === "/") return pathname === "/";
+	return pathname.startsWith(href);
 }
 ---
 <header id="site-header">

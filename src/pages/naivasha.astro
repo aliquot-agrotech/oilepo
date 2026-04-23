@@ -1,41 +1,58 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { Image } from 'astro:assets';
-import placeholder from '../assets/placeholder.svg';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { Image } from "astro:assets";
 
 const pillars = [
-  {
-    number: '01',
-    title: 'Accommodation',
-    desc: 'Two spacious private cottages, each with a sitting room and fireplace, fully equipped kitchen, two en-suite bedrooms, and a private balcony opening onto our garden and gazebo.',
-  },
-  {
-    number: '02',
-    title: 'Dining',
-    desc: 'Three unique dining venues — Gemini, Sagitta, and Cepheus — offer an evolving menu of locally inspired cuisine, Rift Valley wines, and sundowner cocktails with panoramic views.',
-  },
-  {
-    number: '03',
-    title: 'Experience',
-    desc: 'Explore, adventure, engage. Boat rides through papyrus channels, guided nature walks on the lakeshore, visits to Hell\'s Gate, horse-riding, and access to an 18-hole championship golf course.',
-  },
+	{
+		number: "01",
+		title: "Accommodation",
+		desc: "Two spacious private cottages, each with a sitting room and fireplace, fully equipped kitchen, two en-suite bedrooms, and a private balcony opening onto our garden and gazebo.",
+	},
+	{
+		number: "02",
+		title: "Dining",
+		desc: "Three unique dining venues; Gemini, Sagitta, and Cepheus, offer an evolving menu of locally inspired cuisine, Rift Valley wines, and sundowner cocktails with panoramic views.",
+	},
+	{
+		number: "03",
+		title: "Experience",
+		desc: "Explore, adventure, engage. Boat rides through papyrus channels, guided nature walks on the lakeshore, visits to Hell's Gate, horse-riding, and access to an 18-hole championship golf course.",
+	},
 ];
 
 const highlights = [
-  { title: 'Great Rift Valley Views', desc: 'Wake to one of Earth\'s most dramatic geological features framed from your balcony — the Rift Valley escarpment stretching to the horizon.' },
-  { title: '18-Hole Golf Course', desc: 'An acclaimed championship course set against the backdrop of Lake Naivasha and the escarpment — for those who like to swing between game drives.' },
-  { title: 'Boat Safaris', desc: 'Glide across the lake\'s glassy surface at dawn, navigating papyrus channels thick with hippos, kingfishers, and fish eagles.' },
-  { title: 'Hell\'s Gate', desc: 'Cycle or walk through Hell\'s Gate National Park — geysers, gorges, and abundant wildlife, all on foot. The rare African park you can explore without a vehicle.' },
-  { title: 'Walking Safaris', desc: 'Guided lakeshore walks reveal giraffe, zebra, waterbuck, and a staggering diversity of birdlife in the acacia woodland.' },
-  { title: 'Spa & Wellness', desc: 'Unwind with treatments inspired by Kenyan botanicals, in a setting designed for deep restoration after days spent in the bush.' },
+	{
+		title: "Great Rift Valley Views",
+		desc: "Wake to one of Earth's most dramatic geological features framed from your balcony, the Rift Valley escarpment stretching to the horizon.",
+	},
+	{
+		title: "18-Hole Golf Course",
+		desc: "An acclaimed championship course set against the backdrop of Lake Naivasha and the escarpment, for those who like to swing between game drives.",
+	},
+	{
+		title: "Boat Safaris",
+		desc: "Glide across the lake's glassy surface at dawn, navigating papyrus channels thick with hippos, kingfishers, and fish eagles.",
+	},
+	{
+		title: "Hell's Gate",
+		desc: "Cycle or walk through Hell's Gate National Park, geysers, gorges, and abundant wildlife, all on foot. The rare African park you can explore without a vehicle.",
+	},
+	{
+		title: "Walking Safaris",
+		desc: "Guided lakeshore walks reveal giraffe, zebra, waterbuck, and a staggering diversity of birdlife in the acacia woodland.",
+	},
+	{
+		title: "Spa & Wellness",
+		desc: "Unwind with treatments inspired by Kenyan botanicals, in a setting designed for deep restoration after days spent in the bush.",
+	},
 ];
 const restaurants = [
-  "https://static.guestcentric.net/bin/153019f4f24ce8ca/great-rift-valley-lodge-and-golf-resort-imageLinkgemini-restaurant.jpg",
-  "https://static.guestcentric.net/bin/153019f4f24ce8ca/great-rift-valley-lodge-and-golf-resort-imageLinksagitta-restaurant.jpg",
-  "https://static.guestcentric.net/bin/153019f4f24ce8ca/great-rift-valley-lodge-and-golf-resort-imageLinkcepheus-restaurant-2.jpg"
-]
+	"https://static.guestcentric.net/bin/153019f4f24ce8ca/great-rift-valley-lodge-and-golf-resort-imageLinkgemini-restaurant.jpg",
+	"https://static.guestcentric.net/bin/153019f4f24ce8ca/great-rift-valley-lodge-and-golf-resort-imageLinksagitta-restaurant.jpg",
+	"https://static.guestcentric.net/bin/153019f4f24ce8ca/great-rift-valley-lodge-and-golf-resort-imageLinkcepheus-restaurant-2.jpg",
+];
 
 const { PUBLIC_STORAGE_URL } = import.meta.env;
 ---
@@ -69,7 +86,7 @@ const { PUBLIC_STORAGE_URL } = import.meta.env;
         </p>
         <p class="intro-secondary">
           Whether you arrive for the golf, the birds, the boat rides, or simply the profound
-          stillness of a lake at dawn — Naivasha will hold you longer than you planned.
+          stillness of a lake at dawn, Naivasha will hold you longer than you planned.
         </p>
       </div>
     </div>
@@ -106,7 +123,7 @@ const { PUBLIC_STORAGE_URL } = import.meta.env;
             Each of our two private cottages is a self-contained sanctuary designed for long
             stays. A sitting room with fireplace anchors the open-plan living space; a fully
             equipped kitchen means you are never beholden to fixed mealtimes. Two en-suite
-            bedrooms open onto a private balcony that leads directly to the Oilepo garden —
+            bedrooms open onto a private balcony that leads directly to the Oilepo garden,
             where a gazebo awaits your afternoon tea.
           </p>
           <ul class="spec-list">

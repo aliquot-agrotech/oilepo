@@ -1,27 +1,26 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { Image } from 'astro:assets';
-import placeholder from '../assets/placeholder.svg';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { Image } from "astro:assets";
 
 const values = [
-  {
-    heading: 'Philosophy and Inspiration',
-    body: 'We curate experiences that transcend traditional notions of travel and hospitality. At Oilepo, every detail — from the way light falls across the savanna at dawn to the warmth of an evening fire — is thoughtfully considered to offer rejuvenation for body, mind, and spirit.',
-  },
-  {
-    heading: 'Immersive Experiences',
-    body: 'Go beyond the game drive. Our guides are lifelong students of the bush, interpreting landscapes, tracking wildlife, and sharing the deep ecological and cultural knowledge that transforms a safari into a living education.',
-  },
-  {
-    heading: 'Harmony with Nature',
-    body: 'Our camps are built to tread lightly. From solar energy and responsible water use to waste-reduction practices, we are committed to leaving the wild places we inhabit better than we found them — for wildlife and for the communities that call these landscapes home.',
-  },
-  {
-    heading: 'Community Connection',
-    body: 'Oilepo actively collaborates with local artisans, chefs, and guides to ensure that every visit enriches authentic culture and heritage. The art on your walls, the food on your table, and the stories told around the fire all come from the people of this land.',
-  },
+	{
+		heading: "Philosophy and Inspiration",
+		body: "We curate experiences that transcend traditional notions of travel and hospitality. At Oilepo, every detail, from the way light falls across the savanna at dawn to the warmth of an evening fire — is thoughtfully considered to offer rejuvenation for body, mind, and spirit.",
+	},
+	{
+		heading: "Immersive Experiences",
+		body: "Go beyond the game drive. Our guides are lifelong students of the bush, interpreting landscapes, tracking wildlife, and sharing the deep ecological and cultural knowledge that transforms a safari into a living education.",
+	},
+	{
+		heading: "Harmony with Nature",
+		body: "Our camps are built to tread lightly. From solar energy and responsible water use to waste-reduction practices, we are committed to leaving the wild places we inhabit better than we found them — for wildlife and for the communities that call these landscapes home.",
+	},
+	{
+		heading: "Community Connection",
+		body: "Oilepo actively collaborates with local artisans, chefs, and guides to ensure that every visit enriches authentic culture and heritage. The art on your walls, the food on your table, and the stories told around the fire all come from the people of this land.",
+	},
 ];
 const { PUBLIC_STORAGE_URL } = import.meta.env;
 ---

@@ -1,18 +1,24 @@
 ---
-import { Image } from 'astro:assets';
-import placeholder from '../assets/placeholder.svg';
-import type { SvgComponent } from 'astro/types';
+import { Image } from "astro:assets";
+import placeholder from "../assets/placeholder.svg";
 
 interface Props {
-  heading: string;
-  body: string;
-  imageAlt: string;
-  reverse?: boolean;
-  light?: boolean;
-  src?: any
+	heading: string;
+	body: string;
+	imageAlt: string;
+	reverse?: boolean;
+	light?: boolean;
+	src?: any;
 }
 
-const { heading, body, imageAlt, reverse = false, light = false, src=placeholder } = Astro.props;
+const {
+	heading,
+	body,
+	imageAlt,
+	reverse = false,
+	light = false,
+	src = placeholder,
+} = Astro.props;
 ---
 <section class:list={['image-text', { reverse, light }]}>
   <div class="container">
